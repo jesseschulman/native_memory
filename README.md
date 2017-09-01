@@ -6,12 +6,12 @@ Effectively this will spawn X number of java threads in serial, each create a ne
 
 In the MyJSObject class you can change the 2nd argument passed to the new MyScriptEnvironment constructor to enable/disable evaluation of Class.js.
 
-The ReproducerScriptThread class will print at the very start of execution to run the NMT baseline command and then sleep for 5 seconds before starting.  It will do the same and say to run a summary.diff command just before it exits.  On unix systems, you can use the below commands from a separate terminal than the one running ReproducerScriptThread:
-
 Enable NMT when running:
 ```
 java -XX:NativeMemoryTracking=detail ReproducerScriptThread
 ```
+
+The ReproducerScriptThread class will print at the very start of execution to run the NMT baseline command and then sleep for 5 seconds before starting.  It will do the same and say to run a summary.diff command just before it exits.  On unix systems, you can use the below commands from a separate terminal than the one running ReproducerScriptThread:
 
 NMT baseline command:
 ```
