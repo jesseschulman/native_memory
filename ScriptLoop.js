@@ -1,7 +1,7 @@
 var counter = 0;
 while (true) {
     print("loop: " + ++counter)
-    if (counter % 500 === 0) {
+    if (counter % SCRIPT_LOOP_COUNT === 0) {
         //print("DOING GC");
         //GC();
         //print("DONE DOING GC");

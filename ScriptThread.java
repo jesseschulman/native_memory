@@ -5,9 +5,11 @@ import java.io.File;
 public class ScriptThread extends Thread {
 
     private final NashornScriptEngine engine;
+    private final int scriptLoopCount;
 
-    public ScriptThread(NashornScriptEngine engine) {
+    public ScriptThread(NashornScriptEngine engine, int scriptLoopCount) {
         this.engine = engine;
+        this.scriptLoopCount = scriptLoopCount;
     }
 
     @Override
@@ -25,6 +27,7 @@ public class ScriptThread extends Thread {
         }
         */
         MyScriptEnvironment scriptEnvironment = new MyScriptEnvironment(engine);
+        scriptEnvironment.globalBindings.put("SCRIPT_LOOP_COUNT", this.scriptLoopCount);
         scriptEnvironment.eval(new File("ScriptLoop.js"));
     }
 }
